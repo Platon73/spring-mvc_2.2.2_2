@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>making car</title>
+    <style>
+        table th, table td {padding: 5px;}
+        .row  {
+            font-style: italic;
+        }
+        .even-row {
+            color: black;
+        }
+        .odd-row {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1>th:each</h1>
+
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Model</th>
+        <th>Seriy</th>
+    </tr>
+
+    <tr th:each="cars, state : ${cars}"
+        class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+
+        <td th:utext="${state.count}">No</td>
+        <td th:utext="${cars.model}">Model</td>
+        <td th:utext="${cars.seriy}">Seriy</td>
+
+    </tr>
+
+</table>
+<a href="/">osnovnay</a>
+</body>
+</html>
